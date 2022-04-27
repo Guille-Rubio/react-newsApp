@@ -4,10 +4,14 @@ import AddNewsFrom from './AddNewsForm/AddNewsForm';
 import Home from './Home';
 import NewsList from './NewsList';
 
+
+
 class Main extends Component {
+
   render() {
     return <div>
       <h2>Main</h2>
+
       <Routes>
         <Route element={<Home />} path="/home" />
         <Route element={<AddNewsFrom />} path="/form" />

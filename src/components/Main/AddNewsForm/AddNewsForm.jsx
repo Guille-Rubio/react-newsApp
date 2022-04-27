@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 
 class AddNewsForm extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       user:''
+    }
+  }
   render() {
     return <div>
       <h3>Add the latest news to our app</h3>
