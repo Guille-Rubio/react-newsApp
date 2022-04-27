@@ -2,7 +2,12 @@ import React, { Component } from "react";
 
 class Home extends Component {
   render() {
-    return <div>Home</div>;
+    return <div>
+      <form>
+        <input type="text" placeholder="Set User"/>
+        <button>Login</button>
+      </form>
+    </div>;
   }
 }
 
