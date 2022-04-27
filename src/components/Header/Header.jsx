@@ -1,14 +1,24 @@
 import React, { Component } from "react";
 import Nav from './Nav';
+import logo from '../../assets/img/news.png';
+
 
 class Header extends Component {
-  render() {
-    return <div>
-      <p>usuario logado</p>
-      <Nav />
-      <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fhae-ino.org%2Fnews%2F&psig=AOvVaw3Dsp6WNmltvrPbvcy4ubLp&ust=1651156862021000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKi0ieW8tPcCFQAAAAAdAAAAABAD" alt="logo"></img>
 
-    </div>;
+
+  render() {
+    return <header>
+
+      {this.props.data[2].user ?
+        <>
+          <p>¡Hola {this.props.data[2].user}!</p>
+          <button onClick={this.props.data[1]}>Logout</button>
+        </> 
+        : ""}
+      <Nav />
+      <img src={logo} alt="logo"></img>
+
+    </header>;
   }
 }
 
