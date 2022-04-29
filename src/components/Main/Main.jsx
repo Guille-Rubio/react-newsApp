@@ -13,12 +13,15 @@ class Main extends Component {
       <h2>Main</h2>
 
       <Routes>
+        <Route element={<Home />} path="/" />
         <Route element={<Home />} path="/home" />
         <Route element={<AddNewsFrom />} path="/form" />
         <Route element={<NewsList />} path="/list" />
+        
       </Routes>
 
     </div>;
+
   }
 }
 

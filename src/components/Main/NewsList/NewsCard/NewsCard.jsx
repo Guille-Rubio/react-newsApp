@@ -1,24 +1,31 @@
-import React, { Component } from "react";
+import React, { Component, Link } from "react";
+
 
 class NewsCard extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      first: ""
+    }
+  }
+
+
+
+
+
+
   render() {
     return <article>
-      <h2>Headline</h2>
-      <p>Abstract</p>
-      <p>Source</p>
-      <p>Article</p>
-      <p>Author</p>
+
+      <h2>{this.props.value.headline.main}</h2>
+      <p>{this.props.value.abstract}</p>
+      <p>{this.props.value.lead_paragraph}...</p>
+      <p>leer mas</p>
+     {/*  <Link to={this.props.value.weburl}>Leer mas</Link> */}
+      <p>{this.props.value.byline.original}</p>
       <p>ArticleUrl</p>
       <p></p>
-
-      <input type="text" placeholder="headline" />
-      <input type="text" placeholder="abstract" />
-      <input type="text" placeholder="source" />
-      <textarea type="text" placeholder="article" />
-      <input type="text" placeholder="author" />
-      <input type="text" placeholder="articleUrl" />
-      <button type="submit">Añadir</button>
-
     </article>;
   }
 }
