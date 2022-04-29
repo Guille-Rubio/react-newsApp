@@ -13,13 +13,11 @@ class Home extends Component {
   static contextType = userContext;
 
 
-
-
   signup = (event) => {
     event.preventDefault();
     const user = event.target.user.value;
     this.setState({user})
-    this.context[0](user);
+    this.context.login(user);
 
   }
 

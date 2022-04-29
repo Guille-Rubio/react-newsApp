@@ -11,28 +11,37 @@ import { userContext } from "./context/userContext";
 function App() {
 
   const [user, setUser] = useState("");
-  /* const [news, setNews] = useState([]) */
+  const [news, setNews] = useState([]);
 
   const login = (user) => {
-    console.log("llego");
-    setUser({user})
+    setUser(user)
   }
 
   const logout = () => {
     setUser("")
   }
 
-  const data = [
+  const addNews = (newNews) => {
+    console.log("saved news", news);
+    console.log("news to save", newNews);
+    setNews([ ...news, newNews ]);
+
+  }
+
+
+
+  const data = {//mejor usar un objeto
     login,
     logout,
-    user
-  ]
+    user,
+    addNews
+  }
 
   return (
     <div className="App">
       <BrowserRouter >
         <userContext.Provider value={data}>
-          <Header data={data}/>
+          <Header />
           <Main />
         </userContext.Provider>
       </BrowserRouter>
