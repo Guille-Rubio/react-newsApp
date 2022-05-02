@@ -9,12 +9,15 @@ const NYT_API_KEY = process.env.REACT_APP_NYT_API_KEY
 
 
 class NewsList extends Component {
+
   constructor(props) {
     super(props)
 
     this.state = {
       user: '',
-      news: []
+      news: this.props.news,
+      load: [],//Cuidado con nombres variables (carga todo de load)
+
     }
   }
 
@@ -22,22 +25,24 @@ class NewsList extends Component {
     try {
       const apiNewsQuery = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=${NYT_API_KEY}`);
       const fiveNewsPreload = apiNewsQuery.data.response.docs.slice(0, 5);
-      this.setState({ news: fiveNewsPreload })
-      console.log(fiveNewsPreload)
+      this.props.news === []
+        ? this.setState({ load: fiveNewsPreload })
+        : this.setState({ load: this.state.news.concat( fiveNewsPreload ) })
+
     } catch (err) {
       console.log(err)
     }
   }
 
 
-
-
-
   render() {
+
+
+
     return <div>
       <h1>Our news</h1>
-      <section>
-        {this.state.news.map(news => <NewsCard value={news} key={uuidv4()} />)}
+      <section className="card-container">
+        {this.state.load.map(news => <NewsCard value={news} key={uuidv4()} />)}
       </section>
 
 

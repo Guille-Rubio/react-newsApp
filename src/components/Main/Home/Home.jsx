@@ -23,10 +23,10 @@ class Home extends Component {
 
 
   render() {
-    return <div>
-      <form onSubmit={this.signup}>
-        <input type="text" name="user" placeholder="Set User" />
-        <button type="submit">Login</button>
+    return <div className="home">
+      <form className="home__form" onSubmit={this.signup}>
+        <input className="home__input" type="text" name="user" placeholder="Set User" />
+        <button type="submit" className="home__button">Login</button>
       </form>
     </div>;
   }

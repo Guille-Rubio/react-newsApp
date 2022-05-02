@@ -1,29 +1,45 @@
 import React, { Component } from "react";
-import { userContext } from '../../../context/userContext';
+//import { userContext } from '../../../context/userContext';
 
 class AddNewsForm extends Component {
-  static contextType = userContext;
+/*   static contextType = userContext; */
   constructor(props) {
     super(props)
 
     this.state = {
       user: '',
-      news: []
+      news:[]
     }
+    this.addOwnNews = this.addOwnNews.bind(this)
   }
 
-  addNews = (event) => {
+/*   addNews = (event) => {
     event.preventDefault()
-    const { headline, abstract, source, article, author, articleUrl } = event.target
+    const { headline, abstract, first_paragraph, author, articleUrl } = event.target
     const newNews = {
       headline: headline.value,
       abstract: abstract.value,
-      source: source.value,
-      article: article.value,
+      first_paragraph: first_paragraph.value,
       author: author.value,
       articleUrl: articleUrl.value
     }
     this.context.addNews(newNews)
+  } */
+
+  addOwnNews(event){
+    event.preventDefault()
+    const { headline, abstract, first_paragraph, author, articleUrl } = event.target
+    const newNews = {
+      headline: headline.value,
+      abstract: abstract.value,
+      first_paragraph: first_paragraph.value,
+      author: author.value,
+      articleUrl: articleUrl.value
+    }
+    
+    this.props.add(newNews)
+
+    event.target.reset();
   }
 
 
@@ -31,18 +47,17 @@ class AddNewsForm extends Component {
   render() {
     return <div>
       <h3>Add the latest news to our app</h3>
-      <userContext.Consumer>{() =>
-        <form onSubmit={this.addNews}>
-          <input type="text" name="headline" placeholder="headline" />
-          <textarea type="text" name="abstract" placeholder="abstract" />
-          <input type="text" name="source" placeholder="source" />
-          <textarea type="text" name="article" placeholder="article" />
-          <input type="text" name="author" placeholder="author" />
-          <input type="text" name="articleUrl" placeholder="articleUrl" />
-          <button type="submit">Añadir</button>
+     {/*  <userContext.Consumer>{() => */}
+        <form className="add-news__form" onSubmit={this.addOwnNews}>
+          <input className="add-news__input" type="text" name="headline" placeholder="headline" />
+          <textarea className="add-news__textarea" type="text" name="abstract" placeholder="abstract" />
+          <input className="add-news__input" type="text" name="first_paragraph" placeholder="source" />
+          <input className="add-news__input" type="text" name="author" placeholder="author" />
+          <input className="add-news__input" type="text" name="articleUrl" placeholder="articleUrl" />
+          <button className="add-news__submit" type="submit">Añadir</button>
         </form>
-      }
-      </userContext.Consumer>
+     {/*  }
+      </userContext.Consumer> */}
     </div>;
   }
 }
