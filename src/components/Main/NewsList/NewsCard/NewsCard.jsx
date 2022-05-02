@@ -1,4 +1,4 @@
-import React, { Component, Link } from "react";
+import React, { Component } from "react";
 
 
 class NewsCard extends Component {
@@ -12,20 +12,16 @@ class NewsCard extends Component {
 
 
 
-
-
-
   render() {
-    return <article>
+    return <article className="news-cards">
 
       <h2>{this.props.value.headline.main}</h2>
+      <hr></hr>
       <p>{this.props.value.abstract}</p>
-      <p>{this.props.value.lead_paragraph}...</p>
-      <p>leer mas</p>
-     {/*  <Link to={this.props.value.weburl}>Leer mas</Link> */}
-      <p>{this.props.value.byline.original}</p>
-      <p>ArticleUrl</p>
-      <p></p>
+      <p>{this.props.value.lead_paragraph}...<a href={this.props.value.weburl}>leer mas</a></p>
+      
+      {/* <p>{this.props.value.byline.original}</p> */}
+      
     </article>;
   }
 }

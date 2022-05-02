@@ -22,15 +22,16 @@ function App() {
   }
 
   const addNews = (newNews) => {
-    console.log("saved news", news);
+    console.log("saved news", news.length);
     console.log("news to save", newNews);
     setNews([ ...news, newNews ]);
+    console.log(news.length)
 
   }
 
 
 
-  const data = {//mejor usar un objeto
+  const data = {
     login,
     logout,
     user,

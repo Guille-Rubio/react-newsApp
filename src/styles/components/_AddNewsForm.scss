@@ -1,0 +1,36 @@
+@import '../utils/mixins.scss';
+
+.add-news__form {
+    margin:15px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-content: center;
+    border:2px solid lightgray; 
+    border-radius: 5px; 
+    padding:15px; 
+}
+
+.add-news__input {
+    @include text-input;
+    
+}
+
+.add-news__textarea {
+    @include text-input;
+    height:5em;
+
+}
+
+  
+.add-news__submit {
+    @include button; 
+}
+
+.add-news__submit:hover {
+    @include button-hover;
+}
+
+.add-news__submit:active {
+    @include button-active;
+}
