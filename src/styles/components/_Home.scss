@@ -13,19 +13,3 @@
     flex-wrap:wrap;
 }
 
-.home__input {
-    border-radius: 15px;
-}
-
-
-.home__button {
-    @include button; 
-}
-
-.home__button:hover {
-    @include button-hover
-}
-
-.home__button:active {
-    @include button-active
-}

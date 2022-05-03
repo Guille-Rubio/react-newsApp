@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { userContext } from "../../../context/userContext";
+import Button from '@mui/material/Button';
+import { TextField } from "@mui/material";
 
 
 class Home extends Component {
@@ -25,8 +27,8 @@ class Home extends Component {
   render() {
     return <div className="home">
       <form className="home__form" onSubmit={this.signup}>
-        <input className="home__input" type="text" name="user" placeholder="Set User" />
-        <button type="submit" className="home__button">Login</button>
+        <TextField id="standard-basic" label="user" variant="standard" name="user" />
+        <Button type="submit" variant="contained">Login</Button>
       </form>
     </div>;
   }

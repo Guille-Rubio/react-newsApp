@@ -20,6 +20,7 @@ class NewsCard extends Component {
       <p>{this.props.value.abstract}</p>
       <p>{this.props.value.lead_paragraph}...<a href={this.props.value.weburl}>leer mas</a></p>
       
+      <button onClick={this.props.remove}>Remove news</button>
       {/* <p>{this.props.value.byline.original}</p> */}
       
     </article>;

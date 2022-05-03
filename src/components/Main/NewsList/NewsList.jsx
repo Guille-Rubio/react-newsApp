@@ -5,9 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 const NYT_API_KEY = process.env.REACT_APP_NYT_API_KEY
 
-
-
-
 class NewsList extends Component {
 
   constructor(props) {
@@ -16,9 +13,15 @@ class NewsList extends Component {
     this.state = {
       user: '',
       news: this.props.news,
-      load: [],//Cuidado con nombres variables (carga todo de load)
-
+      load: [],//este es el estado que se pinta
     }
+  }
+
+
+  removeNews = (i) => {
+    const remainingNews = this.state.load.filter((news, j) => i !== j)
+    this.setState({ load: remainingNews });
+
   }
 
   async componentDidMount() {
@@ -27,30 +30,18 @@ class NewsList extends Component {
       const fiveNewsPreload = apiNewsQuery.data.response.docs.slice(0, 5);
       this.props.news === []
         ? this.setState({ load: fiveNewsPreload })
-        : this.setState({ load: this.state.news.concat( fiveNewsPreload ) })
-
+        : this.setState({ load: this.state.news.concat(fiveNewsPreload) })
     } catch (err) {
       console.log(err)
     }
   }
 
-
   render() {
-
-
-
     return <div>
       <h1>Our news</h1>
       <section className="card-container">
-        {this.state.load.map(news => <NewsCard value={news} key={uuidv4()} />)}
+        {this.state.load.map((news, i) => <NewsCard value={news} key={uuidv4()} index={i} remove={() => this.removeNews(i)} />)}
       </section>
-
-
-
-
-
-
-
     </div>;
   }
 }
